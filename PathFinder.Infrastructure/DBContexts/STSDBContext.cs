@@ -18,7 +18,6 @@ namespace STS.Infrastructure.DBContexts
             _context = context;
         }
 
-        public DbSet<Governorate> Governorate { get; set; }
         public DbSet<Product> Product { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<CartItem> CartItem { get; set; }

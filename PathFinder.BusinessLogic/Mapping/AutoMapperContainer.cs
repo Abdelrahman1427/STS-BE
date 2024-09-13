@@ -14,7 +14,9 @@ namespace STS.BusinessLogic.Mapping
             return new MapperConfiguration(cfg =>
             {
 
-                cfg.AddProfile(new GovernorateProfile());
+                cfg.AddProfile(new ProductProfile());
+                cfg.AddProfile(new CategoryProfile());
+                cfg.AddProfile(new CartItemProfile());
 
 
             }).CreateMapper();

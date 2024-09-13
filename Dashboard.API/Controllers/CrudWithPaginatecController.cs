@@ -47,7 +47,7 @@ namespace STS.API.Controllers
         public virtual async Task<IActionResult> GetLookUp()
         {
             var data = await _service.GetLookUpAsync(_predicate);
-            var result = _mapper.Map<List<GetLookUpDefinitionDTO>>(data);
+            var result = _mapper.Map<List<TGetPageDTO>>(data);
             return Ok(result);
         }
     }

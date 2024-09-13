@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace STS.Core.Interface.IClientServices
+
+namespace STS.Core.Interface.IDefinitionServices
 {
-    public interface IGovernorateService : ICrudWithPaginateService<Governorate>
+    public interface ICartItemService : ICrudWithPaginateService<CartItem>
     {
     }
 }
