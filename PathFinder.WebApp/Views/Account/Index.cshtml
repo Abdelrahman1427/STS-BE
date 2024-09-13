@@ -1,0 +1,100 @@
+﻿@using PathFinder.SharedKernel.Enums
+@{
+    List<BreadCrumb> breadcrumbs = new List<BreadCrumb>()
+    {
+        new BreadCrumb()
+        {
+            // Name=CoreResources.Approvals
+        }
+    };
+    ViewData["Title"] = @coreResources["Approvals"];
+    bool canAdd = true;
+    bool canUpdate = true;
+    bool canDelete = true;
+    bool canView = true;
+}
+
+<div id="alert"></div>
+
+<!-- Page Content -->
+<custom-table title='@coreResources["Applications"]'
+              is-addable=@canAdd
+              bread-crumbs="@breadcrumbs"
+              add-url="Account/Add"
+              bread-crumbs-title="@CoreResources.Applications">
+</custom-table>
+
+<!-- Update Modal -->
+<form-modal id="acceptAccount-modal"
+            action-name="@coreResources["AcceptAccount"]"
+            title='@CoreResources.Applications'
+            message='@coreResources["AcceptMessage"]'
+            button-name='@coreResources["AcceptAccount"]'>
+</form-modal>
+
+<form-modal id="rejectAccount-modal"
+            action-name="@coreResources["RejectedAccount"]"
+            title='@CoreResources.Applications'
+            message='@coreResources["RejectMessageRejectMessage"]'
+            button-name='@coreResources["RejectedAccount"]'>
+</form-modal>
+
+<!-- View Modal -->
+<custom-modal id="view-modal" action-url="Account/View" title="@CoreResources.View">
+</custom-modal>
+
+
+<!-- Add Modal -->
+<custom-modal id="add-modal" action-url="Account/Add" title='@coreResources["Add"]'>
+</custom-modal>
+
+<!-- Delete Modal -->
+<form-modal id="delete-modal"
+            action-name="@coreResources["Delete"]"
+            title='@CoreResources.Applications'
+            message='@coreResources["RejectMessage"]'
+            button-name='@coreResources["Delete"]'>
+</form-modal>
+
+
+@section Scripts {
+    @{
+        string lang = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+    }
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            let actionsList = [];
+            if ('@canView.ToString()' == 'True')
+                actionsList.push({ title: '@CoreResources.View', modalId: "view-modal", type: "ajax-modal", icon: 'fa-eye', actionName: "view", ownerColumnName: 'name' });
+
+            if ('@canUpdate.ToString()' == 'True')
+                actionsList.push({
+                    title: '@CoreResources.AcceptAccount', modalId: "acceptAccount-modal", type: "form-modal", icon: 'fa-check',actionName: "AcceptStatus", ownerColumnName: 'firstName'});
+
+            if ('@canUpdate.ToString()' == 'True')
+                actionsList.push({ title: '@CoreResources.RejectedAccount', modalId: "rejectAccount-modal", type: "form-modal", icon: 'fa-times', actionName: "RejectStatus", ownerColumnName: 'firstName' });
+
+            if ('@canDelete.ToString()' == 'True')
+                actionsList.push({ title: '@CoreResources.Delete', modalId: "delete-modal", type: "form-modal", icon: 'fa-trash-o', actionName: "Delete", ownerColumnName: 'firstName' });
+
+            let table = DrawDataTable({
+                baseUrl: 'Account',
+                columnsName: ['id', '@coreResources["FirstName"]','@coreResources["LastName"]', '@coreResources["NationalID"]', '@coreResources["Nationality"]', '@coreResources["Gender"]',  '@coreResources["Email"]', '@coreResources["Role"]',  '@coreResources["ProfileStatus"]',],
+                columnsPropertyNames: ['id', 'firstName',  'lastName', 'nationalID', 'nationality', 'gender', 'email', 'role', 'profileStatus'],
+                actions: actionsList,
+                specialDesignColumns: [],
+                fixedColumns: { left: 2 }
+            });
+        });
+        function GetCity(governorateId) {
+            var cultureName = '@Thread.CurrentThread.CurrentCulture.Name';
+            loadDropdown('dllCity', '../Account/GetCity?GovernorateId=' + governorateId, cultureName, '@CoreResources.PleaseSelect');
+        }
+        function GetCenter(cityId) {
+            var cultureName = '@Thread.CurrentThread.CurrentCulture.Name';
+            loadDropdown('CenterId', '../Account/GetCenter?CityId=' + cityId, cultureName, '@CoreResources.PleaseSelect');
+        }
+    </script>
+}

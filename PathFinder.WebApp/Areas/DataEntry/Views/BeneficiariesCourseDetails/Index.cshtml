@@ -1,0 +1,64 @@
+﻿@{
+    List<BreadCrumb> breadcrumbs = new List<BreadCrumb>()
+    {
+        new BreadCrumb()
+        {
+            Name=CoreResources.Beneficiaries
+        }
+    };
+    bool canAdd = true;
+    bool canUpdate = true;
+    bool canDelete = true;
+}
+
+<div id="alert"></div>
+
+<!-- Page Content -->
+<custom-table title='@CoreResources.Course'
+              is-addable=@canAdd
+              bread-crumbs="@breadcrumbs"
+              add-url="DataEntry/BeneficiariesCourseDetails/Add">
+</custom-table>
+
+<!-- Update Modal -->
+<custom-modal id="update-modal" action-url="BeneficiariesCourseDetails/Update" title='@coreResources["Update"]'>
+</custom-modal>
+
+<!-- Add Modal -->
+<custom-modal id="add-modal" action-url="BeneficiariesCourseDetails/Add" title='@coreResources["Add"]'>
+</custom-modal>
+
+<!-- Delete Modal -->
+<form-modal id="delete-modal"
+            action-name="@coreResources["Delete"]"
+            title='@CoreResources.Beneficiaries'
+            message='@coreResources["DeleteMessage"]'
+            button-name='@coreResources["Delete"]'>
+</form-modal>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            let actionsList = [];
+            if ('@canUpdate.ToString()' == 'True')
+                actionsList.push({ title: '@CoreResources.Update', modalId: "update-modal", type: "ajax-modal", icon: 'fa-pencil', actionName: "Update", ownerColumnName: 'enName' });
+
+            if ('@canDelete.ToString()' == 'True')
+                actionsList.push({ title: '@CoreResources.Delete', modalId: "delete-modal", type: "form-modal", icon: 'fa-trash-o', actionName: "Delete", ownerColumnName: 'enName' });
+            let table = DrawDataTable({
+                baseUrl: 'DataEntry/BeneficiariesCourseDetails',
+                columnsName: ['id', '@coreResources["Code"]', '@coreResources["TrainerName"]', '@coreResources["TrainingDays"]'],
+                columnsPropertyNames: ['id', 'code', 'trainerName', 'trainingDays'],
+                actions: actionsList,
+                specialDesignColumns: [],
+                fixedColumns: { left: 2 }
+            });
+        });
+
+        // function GetCity(governorateId) {
+        //     var cultureName = '@Thread.CurrentThread.CurrentCulture.Name';
+        //     loadDropdown('dllCity', '/NGO/Beneficiaries/GetCity?GovernorateId=' + governorateId, cultureName, '@CoreResources.PleaseSelect');
+        // }
+
+    </script>
+}

@@ -1,0 +1,143 @@
+﻿/*-----------------
+    11. Login (RTL)
+-----------------------*/
+
+.account-page {
+    align-items: center;
+    display: flex;
+    background-color: #1b438b;
+    height: 100vh;
+    direction: rtl; /* Ensures RTL direction */
+}
+
+    .account-page .main-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+.account-content {
+    padding: 20px 0;
+}
+
+.account-title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+    color: #6c757d;
+}
+
+.account-subtitle {
+    color: #c4c4c4;
+    font-size: 18px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.account-box {
+    background-color: #ffffff;
+    border: 1px solid #c4c4c4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    overflow: hidden;
+    width: 480px;
+}
+
+.account-wrapper {
+    padding: 30px;
+    text-align: right; /* Align text to the right for RTL */
+}
+
+.account-logo {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.account-box .form-group {
+    margin-bottom: 25px;
+}
+
+.account-box .account-btn {
+    background-color: #ff6a00;
+    color: #ffffff;
+    border: 0;
+    border-radius: 25px;
+    display: block;
+    font-size: 22px;
+    padding: 10px 26px;
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center; /* Center text for button */
+}
+
+    .account-box .account-btn:hover,
+    .account-box .account-btn:focus {
+        background-color: #e65c00;
+        color: #ffffff;
+        border: 1px solid #e65c00;
+        opacity: 0.9;
+    }
+
+.account-box .form-control {
+    background-color: #f0f0f0;
+    border: 1px solid #c4c4c4;
+    border-radius: 8px;
+    height: 46px;
+    text-align: right; /* Align text to the right for input fields */
+}
+
+.account-box label {
+    color: #6c757d;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.account-logo img {
+    width: 170px;
+}
+
+.account-footer {
+    text-align: center;
+}
+
+    .account-footer p {
+        margin-bottom: 0;
+        color: #ffffff;
+    }
+
+    .account-footer a {
+        color: #ff6a00;
+    }
+
+        .account-footer a:hover {
+            color: #e65c00;
+        }
+
+/* Responsive adjustments for RTL */
+@media (max-width: 576px) {
+    .account-title {
+        font-size: 20px;
+    }
+
+    .account-subtitle {
+        font-size: 14px;
+    }
+
+    .account-wrapper {
+        padding: 20px;
+    }
+
+    .account-box {
+        width: 100%; /* Make the box responsive */
+    }
+
+        .account-box .account-btn {
+            font-size: 20px;
+            padding: 8px 20px;
+        }
+}

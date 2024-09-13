@@ -1,0 +1,27 @@
+stages:
+    - deploy_Pathfinder_Web
+    - deploy_Pathfinder_API
+
+deploy_Pathfinder_Web:
+    stage: deploy_Pathfinder_Web
+    script:
+        - dotnet publish PathFinder.WebApp\PathFinder.WebApp.API.csproj -c release
+        - iisreset /stop
+        - xcopy /y /s /exclude:excludedfiles.txt ".\PathFinder.WebApp\bin\Release\net8.0\publish\*.*" "E:\Hosting\Pathfinder-dev\Web" 
+        - iisreset /start
+    only:
+        - Development
+    tags:
+        - orchtech_windows
+
+deploy_Pathfinder_API:
+    stage: deploy_Pathfinder_API
+    script:
+        - dotnet publish Dashboard.API\Dashboard.API.csproj -c release
+        - iisreset /stop
+        - xcopy /y /s /exclude:excludedfiles.txt ".\Dashboard.API\bin\Release\net8.0\publish\*.*" "E:\Hosting\Pathfinder-dev\API" 
+        - iisreset /start
+    only:
+        - Development
+    tags:
+        - orchtech_windows

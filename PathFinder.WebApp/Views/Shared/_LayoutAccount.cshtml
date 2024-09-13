@@ -1,0 +1,102 @@
+﻿@{
+    Layout = null;
+}
+@using Microsoft.AspNetCore.Localization
+
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}";
+    string flag = "us";
+    string lang = "English";
+    switch (System.Globalization.CultureInfo.CurrentCulture.Name)
+    {
+        case "ar-EG":
+            flag = "eg"; lang = "Arabic";
+            break;
+        default:
+            flag = "us"; lang = "English";
+            break;
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en-US" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta name="description" content="Smarthr - Bootstrap Admin Template">
+    <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
+    <meta name="author" content="Dreamguys - Bootstrap Admin Template">
+    <meta name="robots" content="noindex, nofollow">
+    <title>@ViewBag.Title - PathFinder</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="\img\PATHFINDERLOGO.png">
+
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="~/plugins/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="~/plugins/fontawesome/css/all.min.css">
+
+    <!-- Lineawesome CSS -->
+    <link rel="stylesheet" href="~/css/line-awesome.min.css">
+    <link rel="stylesheet" href="~/css/material.css">
+
+    <!-- Lineawesome CSS -->
+    <link rel="stylesheet" href="~/css/line-awesome.min.css">
+
+
+    <!-- Bootstrap CSS -->
+    @if (System.Threading.Thread.CurrentThread.CurrentCulture.Name == "ar-EG")
+    {
+        <link rel="stylesheet" href="~/css/bootstrap.rtl.min.css">
+        <link rel="stylesheet" href="~/css/style-rtl.css">
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/css/bootstrap.min.css">
+        <link rel="stylesheet" href="~/css/style.css">
+    }
+
+
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body class="account-page">
+    <div class="header">
+        <ul class="nav user-menu">
+            <li class="nav-item dropdown has-arrow flag-nav">
+                <partial name="_Culture" />
+            </li>
+        </ul>
+    </div>
+    @RenderBody()
+ 
+    <!-- Script -->
+    <partial name="_Toastr" />
+
+    <!--Jquery Validation-->
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="~/js/jquery-3.7.1.min.js"></script>
+
+    <!-- Bootstrap Core JS -->
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Feather Icon JS -->
+    <script src="~/js/feather.min.js"></script>
+
+    <!-- Slimscroll JS -->
+    <script src="~/js/jquery.slimscroll.min.js"></script>
+
+    <!-- Theme Settings JS -->
+    <script src="~/js/layout.js"></script>
+    <script src="~/js/theme-settings.js"></script>
+    <script src="~/js/greedynav.js"></script>
+
+    <!-- Custom JS -->
+    <script src="~/js/app.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

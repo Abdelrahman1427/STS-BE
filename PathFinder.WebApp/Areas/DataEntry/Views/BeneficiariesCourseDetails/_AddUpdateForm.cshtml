@@ -1,0 +1,140 @@
+﻿@using PathFinder.DataTransferObjects.DTOs.BeneficiariesCourse
+@model BeneficiariesCourseDTO;
+
+
+<form method="post">
+    <h4 class="card-title">@CoreResources.CourseDetials</h4>
+    <div class="row">
+        <div class="col-sm-6" hidden>
+            <div class="form-group">
+                <input asp-for="Id" class="form-control">
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="input-block mb-3">
+                <label class="col-form-label">@CoreResources.CourseCode</label>
+                <input class="form-control" asp-for="Code" required type="text">
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+            <div class="input-block mb-3">
+                <label asp-for="ObjectiveId" class="col-form-label"></label><span class="text-danger">*</span>
+                <select class="select2" asp-for="ObjectiveId">
+                    <option value="">@CoreResources.PleaseSelect</option>
+                    @if (ViewBag.Objective != null)
+                    {
+                        @foreach (var Objective in ViewBag.Objective)
+                        {
+                            string itemName = Thread.CurrentThread.CurrentCulture.Name == "ar-EG" ? Objective.ArName : Objective.EnName;
+                            <option value="@Objective.Id">@itemName</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="ObjectiveId" class="text-danger"></span>
+            </div>
+            <div class="input-block mb-3">
+                <label asp-for="PartnerId" class="col-form-label"></label><span class="text-danger">*</span>
+                <select class="select2" asp-for="PartnerId">
+                    <option value="">@CoreResources.PleaseSelect</option>
+                    @if (ViewBag.Partner != null)
+                    {
+                        @foreach (var Partner in ViewBag.Partner)
+                        {
+                            string itemName = Thread.CurrentThread.CurrentCulture.Name == "ar-EG" ? Partner.ArName : Partner.EnName;
+                            <option value="@Partner.Id">@itemName</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="PartnerId" class="text-danger"></span>
+            </div>
+            <div class="input-block mb-3">
+                <label asp-for="InterventionId" class="col-form-label"></label><span class="text-danger">*</span>
+                <select class="select2" asp-for="InterventionId">
+                    <option value="">@CoreResources.PleaseSelect</option>
+                    @if (ViewBag.Intervention != null)
+                    {
+                        @foreach (var intervention in ViewBag.Intervention)
+                        {
+                            string itemName = Thread.CurrentThread.CurrentCulture.Name == "ar-EG" ? intervention.ArName : intervention.EnName;
+                            <option value="@intervention.Id">@itemName</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="InterventionId" class="text-danger"></span>
+            </div>
+            <div class="input-block mb-3">
+                <label asp-for="GovernorateId" class="col-form-label"></label><span class="text-danger">*</span>
+                <select class="select2" asp-for="GovernorateId">
+                    <option value="">@CoreResources.PleaseSelect</option>
+                    @if (ViewBag.Governorate != null)
+                    {
+                        @foreach (var city in ViewBag.Governorate)
+                        {
+                            string itemName = Thread.CurrentThread.CurrentCulture.Name == "ar-EG" ? city.ArName : city.EnName;
+                            <option value="@city.Id">@itemName</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="GovernorateId" class="text-danger"></span>
+            </div>
+            <div class="input-block mb-3">
+                <label class="col-form-label">@CoreResources.TrainerName</label>
+                <input class="form-control" asp-for="TrainerName" type="text">
+                <span asp-validation-for="TrainerName" class="text-danger"></span>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="input-block mb-3">
+                <label class="col-form-label">@CoreResources.MELCordinator</label>
+                <input class="form-control" asp-for="MELCoordinator" type="text">
+                <span asp-validation-for="MELCoordinator" class="text-danger"></span>
+            </div>
+            <div class="input-block mb-3">
+                <label class="col-form-label">@CoreResources.TrainingDays</label>
+                <input class="form-control" asp-for="TrainingDays" type="text">
+                <span asp-validation-for="TrainingDays" class="text-danger"></span>
+            </div>
+            <div class="input-block mb-3">
+                <label class="col-form-label">@CoreResources.PlaceDescription</label>
+                <input class="form-control" asp-for="PlaceDescription" type="text">
+                <span asp-validation-for="PlaceDescription" class="text-danger"></span>
+            </div>
+            <div class="input-block mb-3">
+                <label asp-for="NonGovermntalOrgniszationId" class="col-form-label"></label><span class="text-danger">*</span>
+                <select class="select2" asp-for="NonGovermntalOrgniszationId">
+                    <option value="">@CoreResources.PleaseSelect</option>
+                    @if (ViewBag.NGO != null)
+                    {
+                        @foreach (var ngo in ViewBag.NGO)
+                        {
+                            <option value="@ngo.Id">@ngo.Name</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="NonGovermntalOrgniszationId" class="text-danger"></span>
+            </div>
+            <div class="input-block mb-3">
+                <label asp-for="CommunityDevlopmentAssositionId" class="col-form-label"></label><span class="text-danger">*</span>
+                <select class="select2" asp-for="CommunityDevlopmentAssositionId">
+                    <option value="">@CoreResources.PleaseSelect</option>
+                    @if (ViewBag.CDA != null)
+                    {
+                        @foreach (var cda in ViewBag.CDA)
+                        {
+                            string itemName = Thread.CurrentThread.CurrentCulture.Name == "ar-EG" ? cda.ArName : cda.EnName;
+                            <option value="@cda.Id">@itemName</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="CommunityDevlopmentAssositionId" class="text-danger"></span>
+            </div>
+            <div class="input-block mb-3">
+                <label class="col-form-label">@CoreResources.CDACoordinator</label>
+                <input class="form-control" asp-for="CDACoordinator" type="text">
+                <span asp-validation-for="CDACoordinator" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <form-footer></form-footer>
+</form>

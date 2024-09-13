@@ -1,0 +1,149 @@
+﻿@using PathFinder.DataTransferObjects.DTOs.CourseTransaction
+@model BeneficiarieDTO
+
+<form method="post">
+    <div class="row">
+        <div class="col-sm-6" hidden>
+            <div class="form-group">
+                <input asp-for="Id" class="form-control">
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-form-label">@CoreResources.FullName <span class="text-danger">*</span></label>
+                <input class="form-control" asp-for="FullName" type="text">
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-form-label">@CoreResources.NationalID <span class="text-danger">*</span></label>
+                <input class="form-control" asp-for="IDNumber" type="number">
+                <span asp-validation-for="IDNumber" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-form-label">@CoreResources.BirthDate </label>
+                <div class="cal-icon"><input class="form-control datetimepicker" asp-for="Birthdate" type="text"></div>
+                <span asp-validation-for="Birthdate" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <label class="d-block col-form-label">@CoreResources.Gender:</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" asp-for="GenderId" id="gender_male" value="0">
+                <label class="form-check-label" for="gender_male">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" asp-for="GenderId" id="gender_female" value="1">
+                <label class="form-check-label" for="gender_female">Female</label>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-form-label">@CoreResources.Age <span class="text-danger">*</span></label>
+                <input class="form-control" asp-for="Age" type="number">
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-form-label">@CoreResources.PhoneNumber <span class="text-danger">*</span></label>
+                <input class="form-control" asp-for="PhoneNumber" type="number">
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-inner">
+                <label>@CoreResources.Governorate <span class="text-danger">*</span></label>
+                <select id="dllGovernorate" onchange="GetCity(this.value)" class="select2 form-control" required>
+                    <option value="">@CoreResources.PleaseSelect</option>
+                    @if (ViewBag.Governorate != null)
+                    {
+                        @foreach (var item in ViewBag.Governorate)
+                        {
+                            string itemName = Thread.CurrentThread.CurrentCulture.Name == "ar-EG" ? item.ArName : item.EnName;
+                            <option value="@item.Id">@itemName</option>
+                        }
+                    }
+                </select>
+
+                <div class="invalid-feedback m-0"> @CoreResources.PleaseSelect @CoreResources.Governorate </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-inner">
+                <label>@CoreResources.City<span class="text-danger">*</span> </label>
+                <select id="CityId" name="CityId" class="select2 form-control" aria-describedby="validationCityId" required>
+                    <option value="">@CoreResources.PleaseSelect</option>
+                </select>
+                <div class="invalid-feedback m-0">
+                    @CoreResources.PleaseSelect @CoreResources.City
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <label class="col-form-label">@CoreResources.EducationLevel</label><span class="text-danger">*</span>
+            <select class="select2" asp-for="EducationLevelId">
+                <option value="">@CoreResources.PleaseSelect</option>
+                @if (ViewBag.EducationLevel != null)
+                {
+                    @foreach (var educationLevel in ViewBag.EducationLevel)
+                    {
+                        string itemName = Thread.CurrentThread.CurrentCulture.Name == "ar-EG" ? educationLevel.ArName : educationLevel.EnName;
+                        <option value="@educationLevel.Id">@itemName</option>
+                    }
+                }
+            </select>
+            <span asp-validation-for="EducationLevelId" class="text-danger"></span>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-form-label">@CoreResources.Workplace <span class="text-danger">*</span></label>
+                <input class="form-control" asp-for="Workplace" type="text">
+                <span asp-validation-for="Workplace" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-form-label">@CoreResources.Position <span class="text-danger">*</span></label>
+                <input class="form-control" asp-for="Position" type="text">
+                <span asp-validation-for="Position" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <label class="d-block col-form-label">@CoreResources.Disability:</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" asp-for="IsDisability" id="yes" value="true">
+                <label class="form-check-label" for="yes">@CoreResources.Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" asp-for="IsDisability" id="No" value="false">
+                <label class="form-check-label" for="No">@CoreResources.No</label>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-inner">
+                <label class="col-form-label"> @CoreResources.TypeOfDisability</label><span class="text-danger">*</span>
+                <select class="select2" asp-for="DisabilityId">
+                    <option value="">@CoreResources.PleaseSelect</option>
+                    @if (ViewBag.Disability != null)
+                    {
+                        @foreach (var disability in ViewBag.Disability)
+                        {
+                            string itemName = Thread.CurrentThread.CurrentCulture.Name == "ar-EG" ? disability.ArName : disability.EnName;
+                            <option value="@disability.Id">@itemName</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="DisabilityId" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <form-footer></form-footer>
+</form>

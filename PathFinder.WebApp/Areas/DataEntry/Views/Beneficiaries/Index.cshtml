@@ -1,0 +1,67 @@
+﻿@{
+    List<BreadCrumb> breadcrumbs = new List<BreadCrumb>()
+    {
+        new BreadCrumb()
+        {
+            Name=CoreResources.NGO
+        }
+    };
+    bool canAdd = true;
+    bool canUpdate = true;
+    bool canDelete = true;
+}
+
+<div id="alert"></div>
+
+<!-- Page Content -->
+<custom-table title='@CoreResources.Beneficiaries'
+              is-addable=@canAdd
+              bread-crumbs="@breadcrumbs"
+              add-url="DataEntry/Beneficiaries/Add"
+              can-import=true
+              import-url="/DataEntry/ImportBeneficiaries/Index"
+              import-message="@CoreResources.Import">
+</custom-table>
+
+<!-- Update Modal -->
+<custom-modal id="update-modal" action-url="Beneficiaries/Update" title='@coreResources["Update"]'>
+</custom-modal>
+
+<!-- Add Modal -->
+<custom-modal id="add-modal" action-url="Beneficiaries/Add" title='@coreResources["Add"]'>
+</custom-modal>
+
+<!-- Delete Modal -->
+<form-modal id="delete-modal"
+            action-name="@coreResources["Delete"]"
+            title='@CoreResources.Beneficiaries'
+            message='@coreResources["DeleteMessage"]'
+            button-name='@coreResources["Delete"]'>
+</form-modal>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            let actionsList = [];
+            if ('@canUpdate.ToString()' == 'True')
+                actionsList.push({ title: '@CoreResources.Update', modalId: "update-modal", type: "ajax-modal", icon: 'fa-pencil', actionName: "Update", ownerColumnName: 'EnName' });
+
+            if ('@canDelete.ToString()' == 'True')
+                actionsList.push({ title: '@CoreResources.Delete', modalId: "delete-modal", type: "form-modal", icon: 'fa-trash-o', actionName: "Delete", ownerColumnName: 'EnName' });
+            let table = DrawDataTable({
+                baseUrl: 'DataEntry/Beneficiaries',
+                columnsName: ['id', '@coreResources["FullName"]', '@coreResources["PhoneNumber"]', '@coreResources["Age"]',  '@coreResources["Position"]'],
+                columnsPropertyNames: ['id', 'fullName', 'phoneNumber', 'age' ,'position'],
+                actions: actionsList,
+                specialDesignColumns: [],
+                fixedColumns: { left: 2 }
+            });
+        });
+
+        function GetCity(governorateId) {
+            var cultureName = '@Thread.CurrentThread.CurrentCulture.Name';
+            loadDropdown('CityId', '/DataEntry/Beneficiaries/GetCity?GovernorateId=' + governorateId, cultureName, '@CoreResources.PleaseSelect');
+        }
+
+    </script>
+}
