@@ -20,20 +20,13 @@ using STS.BusinessLogic.Mapping;
 using STS.SharedKernel.Exceptions;
 using STS.SharedKernel.Helpers.Utilties;
 
-Log.Logger = new LoggerConfiguration().WriteTo.Console(Serilog.Events.LogEventLevel.Warning)
-.CreateBootstrapLogger();
-Log.Information("Starting up");
 
 var builder = WebApplication.CreateBuilder(args);
-
-
 
 #region Connection String
 string clientSTS = builder.Configuration.GetConnectionString("ClientSTS");
 builder.Services.AddDbContextClient(clientSTS);
 #endregion
-
-
 
 #region Cors
 builder.Services.AddCors(options =>
@@ -160,7 +153,6 @@ builder.Services.AddSwaggerGen(c =>
     c.OperationFilter<LangParameterOperationFilterUser>();
 });
 #endregion
-
 
 #region DependencyInjection
 DependencyInjection.ResolveDependencies(builder.Services, builder.Configuration, null);
