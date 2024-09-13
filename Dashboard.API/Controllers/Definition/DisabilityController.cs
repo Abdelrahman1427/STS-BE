@@ -6,7 +6,7 @@ using PathFinder.DataTransferObjects.DTOs.Disability;
 using PathFinder.DataTransferObjects.DTOs.Shared.Request;
 using Microsoft.EntityFrameworkCore;
 
-namespace Dashboard.API.Controllers.Definition
+namespace STS.API.Controllers.Definition
 {
     [Route("Disability")]
     [ApiController]

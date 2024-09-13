@@ -5,7 +5,7 @@ using PathFinder.Core.Interface.IService;
 using PathFinder.DataTransferObjects.DTOs.Role;
 using PathFinder.DataTransferObjects.DTOs.Shared.Request;
 
-namespace Dashboard.API.Controllers.Definition
+namespace STS.API.Controllers.Definition
 {
     [Route("Role")]
     [ApiController]

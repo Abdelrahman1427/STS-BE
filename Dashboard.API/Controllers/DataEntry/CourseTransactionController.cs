@@ -11,7 +11,7 @@ using PathFinder.DataTransferObjects.DTOs.CourseTransaction;
 using PathFinder.DataTransferObjects.DTOs.Shared.Request;
 using System.Net.Http;
 
-namespace Dashboard.API.Controllers.DataEntry
+namespace STS.API.Controllers.DataEntry
 {
     [Route("CourseTransaction")]
     [ApiController]

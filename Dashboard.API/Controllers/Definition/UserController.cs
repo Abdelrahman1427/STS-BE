@@ -1,6 +1,6 @@
 ﻿
 //using AutoMapper;
-//using Dashboard.API.Controllers;
+//using STS.API.Controllers;
 //using Microsoft.AspNetCore.Mvc;
 //using PathFinder.Core.Entities;
 //using PathFinder.Core.Interface.IService;
@@ -8,7 +8,7 @@
 //using PathFinder.DataTransferObjects.DTOs.User;
 //using System.Linq.Expressions;
 
-//namespace Dashboard.API.Controllers.Definition
+//namespace STS.API.Controllers.Definition
 //{
 //    [Route("User")]
 //    [ApiController]

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Query;
 using PathFinder.Core.Entities;
 
 
-namespace Dashboard.API.Controllers
+namespace STS.API.Controllers
 {
     public class CrudWithPaginateController<TEntity, TAddDTO, TUpdateDTO, TGetByIdDTO, TGetPageDTO> : CrudController<TEntity, TAddDTO, TUpdateDTO, TGetByIdDTO, TGetPageDTO>
         where TEntity : class

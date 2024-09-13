@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PathFinder.Core.Interface.IService;
 
-namespace Dashboard.API.Controllers.DataEntry
+namespace STS.API.Controllers.DataEntry
 {
     [Route("TOT")]
     [ApiController]

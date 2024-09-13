@@ -6,7 +6,7 @@ using PathFinder.DataTransferObjects.DTOs.Account;
 using PathFinder.DataTransferObjects.DTOs.Identity.Request;
 using PathFinder.DataTransferObjects.Helpers;
 
-namespace Dashboard.API.Controllers
+namespace STS.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

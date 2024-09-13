@@ -5,7 +5,7 @@ using PathFinder.Core.Interface.IClientServices;
 using PathFinder.DataTransferObjects.DTOs.Governorate;
 using PathFinder.DataTransferObjects.DTOs.Shared.Request;
 
-namespace Dashboard.API.Controllers.Definition
+namespace STS.API.Controllers.Definition
 {
     [Route("Governorate")]
     [ApiController]

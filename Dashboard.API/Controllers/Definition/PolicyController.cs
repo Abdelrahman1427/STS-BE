@@ -5,7 +5,7 @@ using PathFinder.Core.Entities;
 using PathFinder.Core.Interface.IService.IUserServices;
 using PathFinder.DataTransferObjects.DTOs.Policy;
 using PathFinder.DataTransferObjects.DTOs.Shared.Request;
-namespace Dashboard.API.Controllers.Definition
+namespace STS.API.Controllers.Definition
 {
     [Route("Policy")]
     [ApiController]

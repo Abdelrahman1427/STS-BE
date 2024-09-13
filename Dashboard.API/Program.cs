@@ -14,7 +14,7 @@ using PathFinder.BusinessLogic;
 using PathFinder.Infrastructure.DBContexts;
 using PathFinder.Infrastructure;
 using Serilog;
-using Dashboard.API;
+using STS.API;
 using Microsoft.OpenApi.Models;
 using PathFinder.SharedKernel.Helpers.Models;
 using PathFinder.DataTransferObjects.Helpers;
@@ -54,8 +54,8 @@ builder.Services.AddControllersWithViews(options =>
 #endregion
 
 #region Connection String
-string clientDashboard = builder.Configuration.GetConnectionString("ClientDashboard");
-builder.Services.AddDbContextClient(clientDashboard);
+string clientSTS = builder.Configuration.GetConnectionString("ClientSTS");
+builder.Services.AddDbContextClient(clientSTS);
 #endregion
 
 #region EmailService
@@ -145,7 +145,7 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
 {
-    builder.RegisterModule(new InfrastructureModule<PathFinderDBContext>());
+    builder.RegisterModule(new InfrastructureModule<STSDBContext>());
     builder.RegisterModule(new BusinessLogicModule());
 
 });

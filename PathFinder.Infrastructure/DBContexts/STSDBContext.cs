@@ -5,10 +5,10 @@ using System.Reflection.Emit;
 
 namespace PathFinder.Infrastructure.DBContexts
 {
-    public class PathFinderDBContext : DbContext
+    public class STSDBContext : DbContext
     {
         private readonly IHttpContextAccessor _context;
-        public PathFinderDBContext(DbContextOptions<PathFinderDBContext>options, IHttpContextAccessor context) : base(options)
+        public STSDBContext(DbContextOptions<STSDBContext>options, IHttpContextAccessor context) : base(options)
         {
             _context = context;
         }

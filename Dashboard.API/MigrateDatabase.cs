@@ -1,7 +1,7 @@
 ﻿using PathFinder.Infrastructure.DBContexts;
 using Microsoft.EntityFrameworkCore;
 
-namespace Dashboard.API
+namespace STS.API
 {
     public class MigrateDatabase
     {
@@ -9,7 +9,7 @@ namespace Dashboard.API
         {
             using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
-                var context = scope.ServiceProvider.GetService<PathFinderDBContext>();
+                var context = scope.ServiceProvider.GetService<STSDBContext>();
                 await context.Database.MigrateAsync();
             }
         }

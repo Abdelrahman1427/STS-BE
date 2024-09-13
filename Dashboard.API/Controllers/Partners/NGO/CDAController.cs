@@ -9,7 +9,7 @@ using PathFinder.DataTransferObjects.DTOs.NGO;
 using PathFinder.DataTransferObjects.DTOs.Shared.Request;
 using PathFinder.SharedKernel.Filters;
 
-namespace Dashboard.API.Controllers.Partners.NGO
+namespace STS.API.Controllers.Partners.NGO
 {
     [Route("CDA")]
     [ApiController]

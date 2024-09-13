@@ -7,7 +7,7 @@ using PathFinder.Core.Interface.IUserServices;
 using PathFinder.DataTransferObjects.DTOs.Employee;
 using PathFinder.DataTransferObjects.DTOs.Shared.Request;
 
-namespace Dashboard.API.Controllers.Partners.NGO
+namespace STS.API.Controllers.Partners.NGO
 {
     [Route("Employee")]
     [ApiController]

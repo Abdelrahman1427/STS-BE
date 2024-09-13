@@ -5,7 +5,7 @@ using PathFinder.Core.Interface.IUserServices;
 using PathFinder.DataTransferObjects.DTOs.Shared.Request;
 using PathFinder.DataTransferObjects.DTOs.UserType;
 
-namespace Dashboard.API.Controllers.Definition
+namespace STS.API.Controllers.Definition
 {
     [Route("UserType")]
     [ApiController]

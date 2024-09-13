@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PathFinder.Infrastructure\PathFinder.Infrastructure.csproj" />
+    <ProjectReference Include="..\PathFinder.Infrastructure\STS.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,7 @@ using PathFinder.Core.Interface.IService;
 using PathFinder.DataTransferObjects.DTOs.CourseTransaction;
 
 
-namespace Dashboard.API.Controllers.DataEntry
+namespace STS.API.Controllers.DataEntry
 {
     [Route("Beneficiaries")]
     [ApiController]

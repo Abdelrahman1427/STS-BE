@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using PathFinder.Core.Interface.Shared.IServices;
 
 
-namespace Dashboard.API.Controllers
+namespace STS.API.Controllers
 {
     public class CrudController<TEntity,TAddDTO, TUpdateDTO, TGetByIdDTO, TGetPageDTO> : ControllerBase
         where TEntity : class

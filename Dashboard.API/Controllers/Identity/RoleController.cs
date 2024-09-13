@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Dashboard.API.Controllers.Identity
+namespace STS.API.Controllers.Identity
 {
     [ApiController]
     [Route("Role")]

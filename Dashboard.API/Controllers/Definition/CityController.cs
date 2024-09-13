@@ -7,7 +7,7 @@ using PathFinder.DataTransferObjects.DTOs.City;
 using PathFinder.DataTransferObjects.DTOs.Shared.Request;
 using PathFinder.SharedKernel.Filters;
 
-namespace Dashboard.API.Controllers.Definition
+namespace STS.API.Controllers.Definition
 {
     [Route("City")]
     [ApiController]

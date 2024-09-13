@@ -8,11 +8,11 @@ namespace PathFinder.Infrastructure.Extentions
     {
         // extention for bulider.service
         public static void AddDbContextClient(this IServiceCollection services, string connectionString) =>
-            services.AddDbContext<PathFinderDBContext>(options =>
+            services.AddDbContext<STSDBContext>(options =>
             {
                 options.UseSqlServer(connectionString, b =>
                 {
-                    b.MigrationsAssembly(typeof(PathFinderDBContext).Assembly.FullName)
+                    b.MigrationsAssembly(typeof(STSDBContext).Assembly.FullName)
                      .UseNetTopologySuite();
                 });
             });

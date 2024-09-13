@@ -6,7 +6,7 @@ using PathFinder.Core.Interface.IUserServices;
 using PathFinder.DataTransferObjects.DTOs.Engagement;
 using PathFinder.DataTransferObjects.DTOs.Shared.Request;
 
-namespace Dashboard.API.Controllers.Definition
+namespace STS.API.Controllers.Definition
 {
     
     [Route("Engagement")]

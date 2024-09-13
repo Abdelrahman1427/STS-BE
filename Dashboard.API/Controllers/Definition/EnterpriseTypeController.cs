@@ -6,7 +6,7 @@ using PathFinder.Core.Interface.IClientServices;
 using PathFinder.DataTransferObjects.DTOs.EntrepriseType;
 using PathFinder.DataTransferObjects.DTOs.Shared.Request;
 
-namespace Dashboard.API.Controllers.Definition
+namespace STS.API.Controllers.Definition
 {
     [Route("EnterpriseType")]
     [ApiController]
