@@ -1,8 +1,8 @@
-﻿using PathFinder.SharedKernel.Interfaces;
+﻿using STS.SharedKernel.Interfaces;
 using Microsoft.EntityFrameworkCore.Query;
 using System.Linq.Expressions;
 
-namespace PathFinder.Core.Interfaces.Shared.Repository
+namespace STS.Core.Interfaces.Shared.Repository
 {
     public interface IRepository<T> : IDisposable where T : class
     {

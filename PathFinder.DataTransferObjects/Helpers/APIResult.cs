@@ -1,5 +1,5 @@
 ﻿
-namespace PathFinder.DataTransferObjects.Helpers
+namespace STS.DataTransferObjects.Helpers
 {
     public class APIResult
     {

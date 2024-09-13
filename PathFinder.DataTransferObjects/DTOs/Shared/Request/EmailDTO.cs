@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace PathFinder.DataTransferObjects.DTOs.Shared.Request
+namespace STS.DataTransferObjects.DTOs.Shared.Request
 {
     public class EmailDTO
     {

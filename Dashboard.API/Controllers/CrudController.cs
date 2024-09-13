@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using PathFinder.DataTransferObjects.Helpers;
-using PathFinder.SharedKernel.Filters;
+using STS.DataTransferObjects.Helpers;
+using STS.SharedKernel.Filters;
 using Microsoft.AspNetCore.Mvc;
-using PathFinder.Core.Interface.Shared.IServices;
+using STS.Core.Interface.Shared.IServices;
 
 
 namespace STS.API.Controllers

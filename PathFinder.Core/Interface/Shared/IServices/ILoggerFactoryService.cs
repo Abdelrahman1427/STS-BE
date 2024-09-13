@@ -1,4 +1,4 @@
-﻿namespace PathFinder.Core.Interface.Shared.IServices
+﻿namespace STS.Core.Interface.Shared.IServices
 {
     public interface ILoggerFactoryService
     {

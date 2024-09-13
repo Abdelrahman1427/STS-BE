@@ -1,9 +1,9 @@
 ﻿using Autofac;
-using PathFinder.BusinessLogic.Services.Shared;
-using PathFinder.Core.Interface.Shared.IServices;
-using PathFinder.SharedKernel.Interfaces;
+using STS.BusinessLogic.Services.Shared;
+using STS.Core.Interface.Shared.IServices;
+using STS.SharedKernel.Interfaces;
 
-namespace PathFinder.BusinessLogic
+namespace STS.BusinessLogic
 {
     public class BusinessLogicModule : Module
     {

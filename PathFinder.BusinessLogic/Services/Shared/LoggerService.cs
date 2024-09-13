@@ -1,10 +1,10 @@
-﻿using PathFinder.Core.Interface.Shared.IServices;
-using PathFinder.Core.Interfaces.Shared.Repository;
-using PathFinder.DataTransferObjects.Helpers;
-using PathFinder.SharedKernel.Interfaces;
+﻿using STS.Core.Interface.Shared.IServices;
+using STS.Core.Interfaces.Shared.Repository;
+using STS.DataTransferObjects.Helpers;
+using STS.SharedKernel.Interfaces;
 using System.Text.RegularExpressions;
 
-namespace PathFinder.BusinessLogic.Services.Shared
+namespace STS.BusinessLogic.Services.Shared
 {
     public class LoggerService: ILoggerService
     {
@@ -22,7 +22,7 @@ namespace PathFinder.BusinessLogic.Services.Shared
             logger.Path = Path;
             logger.Message = Message;
             logger.Path = Regex.Replace(Path, "[0-9]", "");
-            logger.CreatedBy = "John";
+            logger.CreatedBy = "Abdelrahman";
             logger.CreatedDate = DateTime.Now;
 
             var apiResult =  await _logTypeService.SaveAction(logger);

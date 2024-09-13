@@ -1,10 +1,10 @@
-﻿using PathFinder.Core.Interface.Shared.IServices;
-using PathFinder.DataTransferObjects.Helpers;
-using PathFinder.SharedKernel.Constants;
+﻿using STS.Core.Interface.Shared.IServices;
+using STS.DataTransferObjects.Helpers;
+using STS.SharedKernel.Constants;
 using RoboGas.DataTransferObjects.Helpers;
 using System.Xml;
 
-namespace PathFinder.BusinessLogic.Services.Shared
+namespace STS.BusinessLogic.Services.Shared
 {
     public class FileActionService : ILoggerTypeService
     {

@@ -1,6 +1,6 @@
 ﻿using PasswordGenerator;
 
-namespace PathFinder.SharedKernel.Helpers.Utilties
+namespace STS.SharedKernel.Helpers.Utilties
 {
     public static class HashUtility
     {

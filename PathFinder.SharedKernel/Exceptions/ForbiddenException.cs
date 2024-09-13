@@ -1,6 +1,6 @@
 ﻿
 
-namespace PathFinder.SharedKernel.Exceptions
+namespace STS.SharedKernel.Exceptions
 {
     public class ForbiddenException : Exception
     {

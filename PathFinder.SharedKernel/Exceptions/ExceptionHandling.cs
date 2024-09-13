@@ -4,12 +4,12 @@ using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using System.Net;
 using System.Text.Json;
-using PathFinder.SharedKernel.Constants;
-using PathFinder.SharedKernel.Interfaces;
-using PathFinder.DataTransferObjects.Resources;
+using STS.SharedKernel.Constants;
+using STS.SharedKernel.Interfaces;
+using STS.DataTransferObjects.Resources;
 
 
-namespace PathFinder.SharedKernel.Exceptions
+namespace STS.SharedKernel.Exceptions
 {
     public class ErrorResponse
     {
@@ -72,7 +72,7 @@ namespace PathFinder.SharedKernel.Exceptions
                     errorResponse.Message = exceptionMessage;
                     break;
 
-                case PathFinderException:
+                case STSException:
                     response.StatusCode = (int)HttpStatusCode.InternalServerError;
                     errorResponse.Message = _localizer[exception.Message];
                     break;
@@ -84,7 +84,7 @@ namespace PathFinder.SharedKernel.Exceptions
 
                 default:
                     response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                    errorResponse.Message = _localizer[ExceptionConstants.InternalServerError];
+                    errorResponse.Message = "Internal Server Error";
                     break;
             }
             await _loggerService.Log(AppConstants.FileExceptions, context.Request.Path, exception.ToString());

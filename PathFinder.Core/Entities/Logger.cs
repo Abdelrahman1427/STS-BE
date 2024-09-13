@@ -1,6 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using STS.Core.Entities;
+using System.ComponentModel.DataAnnotations;
 
-namespace PathFinder.Core.Entities
+namespace STS.Core.Entities
 {
     public class Logger : Definition
     {

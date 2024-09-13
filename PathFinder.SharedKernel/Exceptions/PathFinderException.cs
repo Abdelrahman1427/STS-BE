@@ -1,11 +1,11 @@
 ﻿
-namespace PathFinder.SharedKernel.Exceptions
+namespace STS.SharedKernel.Exceptions
 {
-    public class PathFinderException : Exception
+    public class STSException : Exception
     {
-        public PathFinderException():base(){}
-        public PathFinderException(string? message):base(message){}
-        public PathFinderException(string message, Exception inner): base(message, inner){}
+        public STSException():base(){}
+        public STSException(string? message):base(message){}
+        public STSException(string message, Exception inner): base(message, inner){}
 
     }
 }

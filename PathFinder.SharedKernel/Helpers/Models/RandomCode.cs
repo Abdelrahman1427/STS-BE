@@ -1,7 +1,7 @@
 ﻿
-using PathFinder.SharedKernel.Constants;
+using STS.SharedKernel.Constants;
 
-namespace PathFinder.Common.Helpers.Models
+namespace STS.Common.Helpers.Models
 {
     public static class RandomQrCode
     {

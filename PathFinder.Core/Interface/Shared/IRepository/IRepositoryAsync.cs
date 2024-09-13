@@ -1,9 +1,9 @@
 ﻿using System.Linq.Expressions;
-using PathFinder.DataTransferObjects.DTOs.Shared.Request;
-using PathFinder.SharedKernel.Interfaces;
+using STS.DataTransferObjects.DTOs.Shared.Request;
+using STS.SharedKernel.Interfaces;
 using Microsoft.EntityFrameworkCore.Query;
 
-namespace PathFinder.Core.Interfaces.Shared.Repository
+namespace STS.Core.Interfaces.Shared.Repository
 {
     public interface IRepositoryAsync<T> where T : class
     {

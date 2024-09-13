@@ -1,10 +1,11 @@
-﻿using PathFinder.SharedKernel.Constants;
-using PathFinder.SharedKernel.Enums;
-using PathFinder.SharedKernel.Interfaces;
+﻿using STS.SharedKernel.Constants;
+using STS.SharedKernel.Enums;
+using STS.SharedKernel.Interfaces;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.DependencyInjection;
+using STS.SharedKernel.Enums;
 
-namespace PathFinder.SharedKernel.Filters
+namespace STS.SharedKernel.Filters
 {
     public class LoggerActionAttribute : Attribute, IActionFilter
     {

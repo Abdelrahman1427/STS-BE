@@ -13,13 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{B8D0A1BE-135
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STS.API", "Dashboard.API\STS.API.csproj", "{22CFBD64-5947-4BC2-896B-405A5C3244BB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PathFinder.BusinessLogic", "PathFinder.BusinessLogic\PathFinder.BusinessLogic.csproj", "{CD0E1DF2-C2E1-4CFB-B0AB-06ABC0725C25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STS.BusinessLogic", "PathFinder.BusinessLogic\STS.BusinessLogic.csproj", "{CD0E1DF2-C2E1-4CFB-B0AB-06ABC0725C25}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PathFinder.Core", "PathFinder.Core\PathFinder.Core.csproj", "{94152A3A-54D3-4BEA-B7BE-54C3D68EDD5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STS.Core", "PathFinder.Core\STS.Core.csproj", "{94152A3A-54D3-4BEA-B7BE-54C3D68EDD5D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PathFinder.DataTransferObjects", "PathFinder.DataTransferObjects\PathFinder.DataTransferObjects.csproj", "{E68BF5C6-531A-4872-A7E0-6DFE39A13444}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STS.DataTransferObjects", "PathFinder.DataTransferObjects\STS.DataTransferObjects.csproj", "{E68BF5C6-531A-4872-A7E0-6DFE39A13444}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PathFinder.SharedKernel", "PathFinder.SharedKernel\PathFinder.SharedKernel.csproj", "{ADCD220F-6B70-4D18-806C-7700026E9F7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STS.SharedKernel", "PathFinder.SharedKernel\STS.SharedKernel.csproj", "{ADCD220F-6B70-4D18-806C-7700026E9F7A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STS.Infrastructure", "PathFinder.Infrastructure\STS.Infrastructure.csproj", "{6644D172-9F53-4251-A056-100B5E769894}"
 EndProject

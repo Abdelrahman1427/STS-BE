@@ -1,4 +1,4 @@
-﻿namespace PathFinder.SharedKernel.Helpers.Models
+﻿namespace STS.SharedKernel.Helpers.Models
 {
     public class TwilioSetting
     {

@@ -1,0 +1,69 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DTOs\Documentation\**" />
+    <Compile Remove="DTOs\NonEntities\**" />
+    <Compile Remove="Enum\**" />
+    <Compile Remove="Filters\**" />
+    <EmbeddedResource Remove="DTOs\Documentation\**" />
+    <EmbeddedResource Remove="DTOs\NonEntities\**" />
+    <EmbeddedResource Remove="Enum\**" />
+    <EmbeddedResource Remove="Filters\**" />
+    <None Remove="DTOs\Documentation\**" />
+    <None Remove="DTOs\NonEntities\**" />
+    <None Remove="Enum\**" />
+    <None Remove="Filters\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="DTOs\CustomerEventDTO.cs" />
+    <Compile Remove="DTOs\CustomerEventServiceDTO.cs" />
+    <Compile Remove="Helpers\Filter.cs" />
+    <Compile Remove="Helpers\FormDataJsonBinder.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="8.0.0" />
+    <PackageReference Include="JWT" Version="10.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="NetTopologySuite" Version="2.5.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\CoreResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CoreResources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\ModelValidationResources.Designer.cs">
+      <DependentUpon>ModelValidationResources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\CoreResources.resx">
+      <LastGenOutput>CoreResources.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\ModelValidationResources.ar.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\ModelValidationResources.resx">
+      <LastGenOutput>ModelValidationResources.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

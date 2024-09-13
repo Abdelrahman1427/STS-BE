@@ -1,5 +1,5 @@
 ﻿
-namespace PathFinder.SharedKernel.Constants
+namespace STS.SharedKernel.Constants
 
 {
     public static class ExceptionConstants

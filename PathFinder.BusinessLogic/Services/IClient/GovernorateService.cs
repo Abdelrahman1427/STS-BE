@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
-using PathFinder.BusinessLogic.Services.Shared;
-using PathFinder.Core.Interfaces.Shared.Repository;
+using STS.BusinessLogic.Services.Shared;
+using STS.Core.Interfaces.Shared.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using PathFinder.Core.Interface.IClientServices;
+using STS.Core.Interface.IClientServices;
 using System.Threading.Tasks;
-namespace PathFinder.BusinessLogic.Services.IClient
+namespace STS.BusinessLogic.Services.IClient
 {
     public class GovernorateService : CrudWithPaginateService<Governorate>, IGovernorateService
     {

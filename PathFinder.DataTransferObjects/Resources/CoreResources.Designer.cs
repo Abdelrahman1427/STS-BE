@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PathFinder.DataTransferObjects.Resources {
+namespace STS.DataTransferObjects.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace PathFinder.DataTransferObjects.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PathFinder.DataTransferObjects.Resources.CoreResources", typeof(CoreResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("STS.DataTransferObjects.Resources.CoreResources", typeof(CoreResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

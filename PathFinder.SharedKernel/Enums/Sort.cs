@@ -1,5 +1,5 @@
 ﻿
-namespace PathFinder.Common.Helpers.Enums
+namespace STS.Common.Helpers.Enums
 {
     public enum Sort
     {

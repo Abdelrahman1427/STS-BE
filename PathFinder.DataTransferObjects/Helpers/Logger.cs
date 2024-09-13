@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PathFinder.DataTransferObjects.Helpers
+namespace STS.DataTransferObjects.Helpers
 {
     public class Logger 
     {

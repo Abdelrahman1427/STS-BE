@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using System.Linq.Expressions;
 using Microsoft.AspNetCore.Mvc;
-using PathFinder.DataTransferObjects.Helpers;
-using PathFinder.DataTransferObjects.DTOs.Shared.Request;
-using PathFinder.SharedKernel.Filters;
-using PathFinder.Core.Interface.Shared.IServices;
+using STS.DataTransferObjects.Helpers;
+using STS.DataTransferObjects.DTOs.Shared.Request;
+using STS.SharedKernel.Filters;
+using STS.Core.Interface.Shared.IServices;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
-using PathFinder.Core.Entities;
+using STS.Core.Entities;
 
 
 namespace STS.API.Controllers

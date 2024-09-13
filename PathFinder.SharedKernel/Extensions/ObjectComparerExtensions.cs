@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace PathFinder.SharedKernel.Extensions
+namespace STS.SharedKernel.Extensions
 {
     public static class ObjectComparerUtility
     {

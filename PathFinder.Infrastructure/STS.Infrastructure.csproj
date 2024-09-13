@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PathFinder.BusinessLogic\PathFinder.BusinessLogic.csproj" />
+    <ProjectReference Include="..\PathFinder.BusinessLogic\STS.BusinessLogic.csproj" />
   </ItemGroup>
 
 </Project>

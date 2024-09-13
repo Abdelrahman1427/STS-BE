@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using PathFinder.Core.Interfaces.Shared.Repository;
-using PathFinder.SharedKernel.Constants;
+using STS.Core.Interfaces.Shared.Repository;
+using STS.SharedKernel.Constants;
 using Microsoft.Extensions.Options;
 using RoboGas.DataTransferObjects.Helpers;
-using PathFinder.Core.Interface.Shared.IServices;
+using STS.Core.Interface.Shared.IServices;
 
-namespace PathFinder.BusinessLogic.Services.Shared
+namespace STS.BusinessLogic.Services.Shared
 {
     public class LoggerFactoryService : ILoggerFactoryService
     {

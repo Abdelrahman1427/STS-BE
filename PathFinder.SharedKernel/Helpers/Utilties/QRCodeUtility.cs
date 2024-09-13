@@ -1,8 +1,8 @@
-﻿using PathFinder.Common.Helpers.Models;
+﻿using STS.Common.Helpers.Models;
 using QRCoder;
 using System.Text;
 
-namespace PathFinder.SharedKernel.Helpers.Utilties
+namespace STS.SharedKernel.Helpers.Utilties
 {
     public static class QRCodeUtility
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace PathFinder.SharedKernel.Interfaces
+namespace STS.SharedKernel.Interfaces
 {
     public interface IPagination<T>
     {

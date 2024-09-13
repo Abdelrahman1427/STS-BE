@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
 using System.Linq.Expressions;
 
-namespace PathFinder.Core.Interface.Shared.IServices
+namespace STS.Core.Interface.Shared.IServices
 {
     public interface ICrudService<Entity> where Entity : class
     {

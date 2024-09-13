@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore;
 using Org.BouncyCastle.Tls;
-using PathFinder.Core.Interfaces.Shared.Repository;
+using STS.Core.Interfaces.Shared.Repository;
 
-namespace PathFinder.Infrastructure.Repositories
+namespace STS.Infrastructure.Repositories
 {
     public class UnitOfWork<T> : IRepositoryFactory, IUnitOfWork where T : DbContext , IDisposable
     {

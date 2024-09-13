@@ -1,8 +1,8 @@
-﻿using PathFinder.Infrastructure.DBContexts;
+﻿using STS.Infrastructure.DBContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace PathFinder.Infrastructure.Extentions
+namespace STS.Infrastructure.Extentions
 {
     public static class ServiceCollectionExtention
     {

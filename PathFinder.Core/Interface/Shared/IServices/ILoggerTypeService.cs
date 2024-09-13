@@ -1,6 +1,6 @@
-﻿using PathFinder.DataTransferObjects.Helpers;
+﻿using STS.DataTransferObjects.Helpers;
 
-namespace PathFinder.Core.Interface.Shared.IServices
+namespace STS.Core.Interface.Shared.IServices
 {
     public interface ILoggerTypeService
     {

@@ -1,7 +1,7 @@
-﻿using PathFinder.DataTransferObjects.Resources;
+﻿using STS.DataTransferObjects.Resources;
 using System.ComponentModel.DataAnnotations;
 
-namespace PathFinder.SharedKernel.Enums
+namespace STS.SharedKernel.Enums
 {
     public enum ResponseStatus
     {

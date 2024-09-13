@@ -1,10 +1,10 @@
 ﻿using Autofac;
-using PathFinder.Core.Interfaces.Shared.Repository;
-using PathFinder.Infrastructure.Repositories;
+using STS.Core.Interfaces.Shared.Repository;
+using STS.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Module = Autofac.Module;
 
-namespace PathFinder.Infrastructure
+namespace STS.Infrastructure
 {
     public class InfrastructureModule<T> : Module where T : DbContext
     {

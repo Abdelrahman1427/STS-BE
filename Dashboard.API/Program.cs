@@ -9,20 +9,19 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Autofac.Extensions.DependencyInjection;
 using Autofac;
 using Microsoft.AspNetCore.HttpOverrides;
-using PathFinder.Infrastructure.Extentions;
-using PathFinder.BusinessLogic;
-using PathFinder.Infrastructure.DBContexts;
-using PathFinder.Infrastructure;
+using STS.Infrastructure.Extentions;
+using STS.BusinessLogic;
+using STS.Infrastructure.DBContexts;
+using STS.Infrastructure;
 using Serilog;
 using STS.API;
 using Microsoft.OpenApi.Models;
-using PathFinder.SharedKernel.Helpers.Models;
-using PathFinder.DataTransferObjects.Helpers;
-using PathFinder.BusinessLogic.Mapping;
-using PathFinder.SharedKernel.Exceptions;
-using PathFinder.SharedKernel.Helpers.Utilties;
-using PathFinder.BusinessLogic.Services.Shared;
-using PathFinder.DataTransferObjects.DTOs.Notification;
+using STS.SharedKernel.Helpers.Models;
+using STS.DataTransferObjects.Helpers;
+using STS.BusinessLogic.Mapping;
+using STS.SharedKernel.Exceptions;
+using STS.SharedKernel.Helpers.Utilties;
+using STS.BusinessLogic.Services.Shared;
 
 Log.Logger = new LoggerConfiguration().WriteTo.Console(Serilog.Events.LogEventLevel.Warning)
 .CreateBootstrapLogger();
@@ -76,8 +75,8 @@ builder.Services.AddCors(options =>
             "*"
                             //"http://localhost:4200",
                             //"https://localhost:7193",
-                            //"https://PathFinder-staging.orchtech.com:4433/",
-                            //"https://PathFinder-staging.orchtech.com/"
+                            //"https://STS-staging.orchtech.com:4433/",
+                            //"https://STS-staging.orchtech.com/"
                             )
     .AllowAnyHeader()
     .AllowAnyMethod();
@@ -110,7 +109,6 @@ builder.Services.AddAuthentication(options =>
             RoleClaimType = "role"
         };
     });
-builder.Services.AddAuthorization(options => Polices.AddPolices(options));
 
 #endregion
 
@@ -226,7 +224,6 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 {
     ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
 });
-await MigrateDatabase.EnsureMigration(app);
 
 var locOptions = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
 app.UseRequestLocalization(locOptions.Value);
@@ -234,7 +231,6 @@ app.UseRequestLocalization(locOptions.Value);
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapHub<NotificationHub>("/notificationHub");
 
 app.UseMiddleware<ExceptionHandling>();
 

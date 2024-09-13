@@ -1,13 +1,13 @@
-﻿using PathFinder.Core.Interfaces.Shared.Repository;
-using PathFinder.DataTransferObjects.DTOs.Shared.Request;
-using PathFinder.SharedKernel.Constants;
-using PathFinder.SharedKernel.Interfaces;
+﻿using STS.Core.Interfaces.Shared.Repository;
+using STS.DataTransferObjects.DTOs.Shared.Request;
+using STS.SharedKernel.Constants;
+using STS.SharedKernel.Interfaces;
 using Microsoft.EntityFrameworkCore.Query;
 using System.Linq.Expressions;
-using PathFinder.Core.Interface.Shared.IServices;
+using STS.Core.Interface.Shared.IServices;
 
 
-namespace PathFinder.BusinessLogic.Services.Shared
+namespace STS.BusinessLogic.Services.Shared
 {
     public class CrudWithPaginateService<Entity> : CrudService<Entity>, ICrudWithPaginateService<Entity>
        where Entity : class

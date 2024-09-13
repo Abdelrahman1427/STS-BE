@@ -1,9 +1,9 @@
-﻿using PathFinder.DataTransferObjects.Resources;
-using PathFinder.SharedKernel.Exceptions;
+﻿using STS.DataTransferObjects.Resources;
+using STS.SharedKernel.Exceptions;
 using Microsoft.AspNetCore.Http;
 using System.Net;
 
-namespace PathFinder.SharedKernel.Helpers.Utilties
+namespace STS.SharedKernel.Helpers.Utilties
 {
     public static class FileUtility
     {
@@ -43,7 +43,7 @@ namespace PathFinder.SharedKernel.Helpers.Utilties
             }
             catch (Exception ex)
             {
-                //throw new PathFinderException(CoreResources.RemoveImage);
+                //throw new STSException(CoreResources.RemoveImage);
             }
         }
 

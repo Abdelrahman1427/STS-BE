@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PathFinder.SharedKernel.Helpers.Utilties
+namespace STS.SharedKernel.Helpers.Utilties
 {
     public static class TimeZoneUtility
     {

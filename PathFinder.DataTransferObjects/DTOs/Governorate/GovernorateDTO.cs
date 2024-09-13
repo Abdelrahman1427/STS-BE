@@ -1,6 +1,6 @@
-﻿using PathFinder.DataTransferObjects.DTOs.Shared.Request;
+﻿using STS.DataTransferObjects.DTOs.Shared.Request;
 
-namespace PathFinder.DataTransferObjects.DTOs.Governorate
+namespace STS.DataTransferObjects.DTOs.Governorate
 {
     public class GovernorateDTO : GetLookUpDefinitionDTO
     {

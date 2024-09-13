@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using PathFinder.Core.Interface.Shared.IServices;
-using PathFinder.Core.Interfaces.Shared.Repository;
-using PathFinder.DataTransferObjects.Helpers;
-using PathFinder.SharedKernel.Constants;
+using STS.Core.Interface.Shared.IServices;
+using STS.Core.Interfaces.Shared.Repository;
+using STS.DataTransferObjects.Helpers;
+using STS.SharedKernel.Constants;
 
-namespace PathFinder.BusinessLogic.Services.Shared
+namespace STS.BusinessLogic.Services.Shared
 {
     public class DatabaseService : ILoggerTypeService
     {

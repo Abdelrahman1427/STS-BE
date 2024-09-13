@@ -1,4 +1,4 @@
-﻿namespace PathFinder.Core.Interfaces.Shared.Repository
+﻿namespace STS.Core.Interfaces.Shared.Repository
 {
     public interface IRepositoryFactory
     {

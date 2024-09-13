@@ -1,8 +1,8 @@
-﻿using PathFinder.DataTransferObjects.DTOs.Shared.Request;
-using PathFinder.SharedKernel.Interfaces;
+﻿using STS.DataTransferObjects.DTOs.Shared.Request;
+using STS.SharedKernel.Interfaces;
 using System.Linq.Expressions;
 
-namespace PathFinder.Core.Interface.Shared.IServices
+namespace STS.Core.Interface.Shared.IServices
 {
     public interface IGetViewUpdateCrudService<Entity> where Entity : class
     {

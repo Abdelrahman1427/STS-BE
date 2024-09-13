@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace PathFinder.SharedKernel.Extensions
+namespace STS.SharedKernel.Extensions
 {
     public static class DateTimeExtensions
     {

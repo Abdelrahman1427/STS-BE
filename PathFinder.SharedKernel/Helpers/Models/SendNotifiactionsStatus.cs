@@ -1,6 +1,6 @@
 ﻿
 
-namespace PathFinder.Common.Helpers.Models
+namespace STS.Common.Helpers.Models
 {
     public class SendNotifiactionsStatus
     {

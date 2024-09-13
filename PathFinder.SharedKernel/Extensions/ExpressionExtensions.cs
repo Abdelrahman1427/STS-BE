@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace PathFinder.SharedKernel.Extensions
+namespace STS.SharedKernel.Extensions
 {
     public static class ExpressionExtensions
     {

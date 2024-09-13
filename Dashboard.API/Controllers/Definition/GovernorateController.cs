@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using PathFinder.Core.Interface.IClientServices;
-using PathFinder.DataTransferObjects.DTOs.Governorate;
-using PathFinder.DataTransferObjects.DTOs.Shared.Request;
+using STS.Core.Interface.IClientServices;
+using STS.DataTransferObjects.DTOs.Governorate;
+using STS.DataTransferObjects.DTOs.Shared.Request;
 
 namespace STS.API.Controllers.Definition
 {
@@ -18,7 +18,6 @@ namespace STS.API.Controllers.Definition
         {
             _mapper = mapper;
             _service = service;
-            _include = x => x.Include(a => a.CreatedByUser).Include(a => a.UpdatedByUser);
         }
     }
 }

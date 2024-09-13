@@ -1,10 +1,10 @@
 ﻿using FirebaseAdmin;
 using FirebaseAdmin.Messaging;
 using Google.Apis.Auth.OAuth2;
-using PathFinder.Common.Helpers.Models;
+using STS.Common.Helpers.Models;
 using Twilio.Http;
 
-namespace PathFinder.SharedKernel.Helpers.Utilties
+namespace STS.SharedKernel.Helpers.Utilties
 {
     public static class NotificationUtility
     {
