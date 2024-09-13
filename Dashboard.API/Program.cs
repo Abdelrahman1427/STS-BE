@@ -15,7 +15,6 @@ using STS.Infrastructure;
 using Serilog;
 using STS.API;
 using Microsoft.OpenApi.Models;
-using STS.SharedKernel.Helpers.Models;
 using STS.DataTransferObjects.Helpers;
 using STS.BusinessLogic.Mapping;
 using STS.SharedKernel.Exceptions;
