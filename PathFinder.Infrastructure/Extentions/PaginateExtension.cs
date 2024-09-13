@@ -1,8 +1,8 @@
-﻿using PathFinder.DataTransferObjects.Helpers;
-using PathFinder.SharedKernel.Interfaces;
+﻿using STS.DataTransferObjects.Helpers;
+using STS.SharedKernel.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace PathFinder.Infrastructure.Extentions
+namespace STS.Infrastructure.Extentions
 {
     internal static class PaginateExtensions
     {

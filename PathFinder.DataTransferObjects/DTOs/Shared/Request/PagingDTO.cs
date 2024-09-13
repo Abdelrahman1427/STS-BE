@@ -1,4 +1,4 @@
-﻿namespace PathFinder.DataTransferObjects.DTOs.Shared.Request
+﻿namespace STS.DataTransferObjects.DTOs.Shared.Request
 {
     public class PagingDTO<T> : PagingDTO
     {

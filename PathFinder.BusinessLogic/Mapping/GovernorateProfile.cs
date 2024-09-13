@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using PathFinder.Core.Entities;
-using PathFinder.DataTransferObjects.DTOs.Governorate;
-using PathFinder.DataTransferObjects.DTOs.Shared.Request;
-using PathFinder.DataTransferObjects.Helpers;
+using STS.Core.Entities;
+using STS.DataTransferObjects.DTOs.Governorate;
+using STS.DataTransferObjects.DTOs.Shared.Request;
+using STS.DataTransferObjects.Helpers;
 
-namespace PathFinder.BusinessLogic.Mapping
+namespace STS.BusinessLogic.Mapping
 {
     public class GovernorateProfile : Profile
     {
@@ -16,10 +16,7 @@ namespace PathFinder.BusinessLogic.Mapping
                     .ForMember(e => e.CreatedDate, ex => ex.Condition(src => src.Id == null))
                     .ReverseMap();
             CreateMap<GetLookUpDefinitionDTO, GovernorateDTO>().ReverseMap();
-            CreateMap<Governorate, GetLookUpDefinitionDTO>()
-            .ForMember(dest => dest.CreatedBy, ex => ex.MapFrom(src => src.CreatedByUser.UserName))
-            .ForMember(dest => dest.UpdatedBy, ex => ex.MapFrom(src => src.UpdatedByUser.UserName))
-            .ReverseMap();
+
             CreateMap<Pagination<Governorate>, Pagination<GetLookUpDefinitionDTO>>().ReverseMap();
         }
     }

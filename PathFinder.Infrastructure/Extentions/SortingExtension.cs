@@ -1,10 +1,10 @@
-﻿using PathFinder.DataTransferObjects.Helpers;
-using PathFinder.SharedKernel.Extensions;
-using PathFinder.SharedKernel.Interfaces;
+﻿using STS.DataTransferObjects.Helpers;
+using STS.SharedKernel.Extensions;
+using STS.SharedKernel.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
-namespace PathFinder.Infrastructure.Extentions
+namespace STS.Infrastructure.Extentions
 {
     internal static class SortingExtensions
     {

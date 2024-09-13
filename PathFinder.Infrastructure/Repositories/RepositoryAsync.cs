@@ -1,7 +1,7 @@
-﻿using PathFinder.Core.Interfaces.Shared.Repository;
-using PathFinder.DataTransferObjects.DTOs.Shared.Request;
-using PathFinder.Infrastructure.Extentions;
-using PathFinder.SharedKernel.Interfaces;
+﻿using STS.Core.Interfaces.Shared.Repository;
+using STS.DataTransferObjects.DTOs.Shared.Request;
+using STS.Infrastructure.Extentions;
+using STS.SharedKernel.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 using System.Linq.Expressions;
@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Internal;
 using Org.BouncyCastle.Asn1;
 
 
-namespace PathFinder.Infrastructure.Repositories
+namespace STS.Infrastructure.Repositories
 {
     internal class RepositoryAsync<T> : IRepositoryAsync<T> where T : class
     {

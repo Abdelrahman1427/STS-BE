@@ -3,11 +3,11 @@ using System.Linq.Expressions;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
-using PathFinder.SharedKernel.Interfaces;
-using PathFinder.Infrastructure.Extentions;
-using PathFinder.Core.Interfaces.Shared.Repository;
+using STS.SharedKernel.Interfaces;
+using STS.Infrastructure.Extentions;
+using STS.Core.Interfaces.Shared.Repository;
 
-namespace PathFinder.Infrastructure.Repositories
+namespace STS.Infrastructure.Repositories
 {
     internal class Repository<T> : IRepository<T> where T : class
     {

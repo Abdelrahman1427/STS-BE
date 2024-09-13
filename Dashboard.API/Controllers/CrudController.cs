@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
-using PathFinder.DataTransferObjects.Helpers;
-using PathFinder.SharedKernel.Filters;
+using STS.DataTransferObjects.Helpers;
 using Microsoft.AspNetCore.Mvc;
-using PathFinder.Core.Interface.Shared.IServices;
+using STS.Core.Interface.Shared.IServices;
 
 
-namespace Dashboard.API.Controllers
+namespace STS.API.Controllers
 {
     public class CrudController<TEntity,TAddDTO, TUpdateDTO, TGetByIdDTO, TGetPageDTO> : ControllerBase
         where TEntity : class
@@ -23,7 +22,6 @@ namespace Dashboard.API.Controllers
         }
 
         [HttpPost("Add")]
-        [LoggerAction]
         public virtual async Task<APIResult> Add(TAddDTO addDTO)
         {
             try
@@ -42,7 +40,6 @@ namespace Dashboard.API.Controllers
         }
 
         [HttpPut("Update/{id}")]
-        [LoggerAction]
         public virtual async Task<APIResult> Update(int id, TUpdateDTO updateDTO)
         {
             try
@@ -61,7 +58,6 @@ namespace Dashboard.API.Controllers
         }
 
         [HttpDelete("Delete/{id}")]
-        [LoggerAction]
         public virtual async Task<APIResult> Delete(int id)
         {
             try
@@ -77,7 +73,6 @@ namespace Dashboard.API.Controllers
         }
 
         [HttpGet("GetById/{id}")]
-        [LoggerAction]
         public virtual async Task<APIResult> GetById(int id)
         {
             try

@@ -1,16 +1,15 @@
 ﻿using AutoMapper;
 using System.Linq.Expressions;
 using Microsoft.AspNetCore.Mvc;
-using PathFinder.DataTransferObjects.Helpers;
-using PathFinder.DataTransferObjects.DTOs.Shared.Request;
-using PathFinder.SharedKernel.Filters;
-using PathFinder.Core.Interface.Shared.IServices;
+using STS.DataTransferObjects.Helpers;
+using STS.DataTransferObjects.DTOs.Shared.Request;
+using STS.Core.Interface.Shared.IServices;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
-using PathFinder.Core.Entities;
+using STS.Core.Entities;
 
 
-namespace Dashboard.API.Controllers
+namespace STS.API.Controllers
 {
     public class CrudWithPaginateController<TEntity, TAddDTO, TUpdateDTO, TGetByIdDTO, TGetPageDTO> : CrudController<TEntity, TAddDTO, TUpdateDTO, TGetByIdDTO, TGetPageDTO>
         where TEntity : class
@@ -30,7 +29,6 @@ namespace Dashboard.API.Controllers
         }
 
         [HttpPost("GetPage")]
-        [LoggerAction]
         public virtual async Task<APIResult> GetPage(PagingDTO paginationDTO)
         {
             try
@@ -46,7 +44,6 @@ namespace Dashboard.API.Controllers
         }
 
         [HttpGet("GetLookUp")]
-        [LoggerAction]
         public virtual async Task<IActionResult> GetLookUp()
         {
             var data = await _service.GetLookUpAsync(_predicate);

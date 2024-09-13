@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace PathFinder.SharedKernel.Helpers.Utilties
+namespace STS.SharedKernel.Helpers.Utilties
 {
     public partial class CultureUtility
     {

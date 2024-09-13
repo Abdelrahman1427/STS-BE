@@ -1,7 +1,7 @@
 ﻿using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace Dashboard.API
+namespace STS.API
 {
     public class LangParameterOperationFilterUser : IOperationFilter
     {

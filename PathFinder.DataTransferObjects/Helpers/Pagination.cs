@@ -1,7 +1,7 @@
 ﻿
-using PathFinder.SharedKernel.Interfaces;
+using STS.SharedKernel.Interfaces;
 
-namespace PathFinder.DataTransferObjects.Helpers
+namespace STS.DataTransferObjects.Helpers
 {
     public class Pagination<T> : IPagination<T>
     {

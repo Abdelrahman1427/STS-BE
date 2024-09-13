@@ -9,75 +9,36 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Autofac.Extensions.DependencyInjection;
 using Autofac;
 using Microsoft.AspNetCore.HttpOverrides;
-using PathFinder.Infrastructure.Extentions;
-using PathFinder.BusinessLogic;
-using PathFinder.Infrastructure.DBContexts;
-using PathFinder.Infrastructure;
+using STS.Infrastructure.Extentions;
+using STS.Infrastructure.DBContexts;
+using STS.Infrastructure;
 using Serilog;
-using Dashboard.API;
+using STS.API;
 using Microsoft.OpenApi.Models;
-using PathFinder.SharedKernel.Helpers.Models;
-using PathFinder.DataTransferObjects.Helpers;
-using PathFinder.BusinessLogic.Mapping;
-using PathFinder.SharedKernel.Exceptions;
-using PathFinder.SharedKernel.Helpers.Utilties;
-using PathFinder.BusinessLogic.Services.Shared;
-using PathFinder.DataTransferObjects.DTOs.Notification;
+using STS.DataTransferObjects.Helpers;
+using STS.BusinessLogic.Mapping;
+using STS.SharedKernel.Exceptions;
+using STS.SharedKernel.Helpers.Utilties;
 
-Log.Logger = new LoggerConfiguration().WriteTo.Console(Serilog.Events.LogEventLevel.Warning)
-.CreateBootstrapLogger();
-Log.Information("Starting up");
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers(options =>
-{
-    var jsonInputFormatter = options.InputFormatters
-        .OfType<Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter>()
-        .Single();
-});
-
-#region Json newtonsoft and json patch
-builder.Services.AddControllersWithViews().AddNewtonsoftJson();
-builder.Services.AddControllersWithViews(options =>
-{
-    options.InputFormatters.Insert(0, new ServiceCollection()
-        .AddLogging()
-        .AddMvc()
-        .AddNewtonsoftJson()
-        .Services.BuildServiceProvider()
-        .GetRequiredService<IOptions<MvcOptions>>()
-        .Value
-        .InputFormatters
-        .OfType<NewtonsoftJsonPatchInputFormatter>().First());
-});
-#endregion
-
 #region Connection String
-string clientDashboard = builder.Configuration.GetConnectionString("ClientDashboard");
-builder.Services.AddDbContextClient(clientDashboard);
+string clientSTS = builder.Configuration.GetConnectionString("ClientSTS");
+builder.Services.AddDbContextClient(clientSTS);
 #endregion
 
-#region EmailService
-builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
-#endregion
-
-#region TwilioService
-builder.Services.Configure<TwilioSetting>(builder.Configuration.GetSection("Twilio"));
-#endregion
-
-#region Flutter
+#region Cors
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFlutterOrigins",
+    options.AddPolicy("AllowCorsOrigins",
     builder =>
     {
         builder.WithOrigins(
             "*"
                             //"http://localhost:4200",
                             //"https://localhost:7193",
-                            //"https://PathFinder-staging.orchtech.com:4433/",
-                            //"https://PathFinder-staging.orchtech.com/"
+
                             )
     .AllowAnyHeader()
     .AllowAnyMethod();
@@ -110,7 +71,6 @@ builder.Services.AddAuthentication(options =>
             RoleClaimType = "role"
         };
     });
-builder.Services.AddAuthorization(options => Polices.AddPolices(options));
 
 #endregion
 
@@ -141,12 +101,10 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 #endregion
 
 #region autoFac Configure IOC Container for other Projects
-//var isDevelopment = builder.Environment.IsDevelopment();
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
 {
-    builder.RegisterModule(new InfrastructureModule<PathFinderDBContext>());
-    builder.RegisterModule(new BusinessLogicModule());
+    builder.RegisterModule(new InfrastructureModule<STSDBContext>());
 
 });
 #endregion
@@ -168,7 +126,7 @@ builder.Services.AddSwaggerGen(c =>
 
     c.SwaggerDoc("v5", new OpenApiInfo
     {
-        Title = "My API",
+        Title = "My STS API",
         Version = "v5"
     });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -196,15 +154,9 @@ builder.Services.AddSwaggerGen(c =>
 });
 #endregion
 
-#region Sentry
-builder.WebHost.UseSentry();
-#endregion
-
 #region DependencyInjection
 DependencyInjection.ResolveDependencies(builder.Services, builder.Configuration, null);
 #endregion
-
-builder.Services.AddSignalR();
 
 #region Run App
 var app = builder.Build();
@@ -226,7 +178,6 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 {
     ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
 });
-await MigrateDatabase.EnsureMigration(app);
 
 var locOptions = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
 app.UseRequestLocalization(locOptions.Value);
@@ -234,11 +185,9 @@ app.UseRequestLocalization(locOptions.Value);
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapHub<NotificationHub>("/notificationHub");
 
 app.UseMiddleware<ExceptionHandling>();
 
-app.UseSentryTracing();
 
 app.MapControllers();
 app.Run();

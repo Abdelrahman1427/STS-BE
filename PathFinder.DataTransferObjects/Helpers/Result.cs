@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PathFinder.DataTransferObjects.Helpers
+namespace STS.DataTransferObjects.Helpers
 {
     public class Result
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PathFinder.DataTransferObjects.Validators
+namespace STS.DataTransferObjects.Validators
 {
     [AttributeUsage( AttributeTargets.Property | AttributeTargets.Field , AllowMultiple = false)]
     public class RequiredCheckboxAttribute : ValidationAttribute

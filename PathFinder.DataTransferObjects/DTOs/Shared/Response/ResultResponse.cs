@@ -1,5 +1,5 @@
 ﻿
-namespace PathFinder.DataTransferObjects.DTOs.Shared.Response
+namespace STS.DataTransferObjects.DTOs.Shared.Response
 {
     public class ResultResponse
     {

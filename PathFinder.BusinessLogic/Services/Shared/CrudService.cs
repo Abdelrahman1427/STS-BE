@@ -1,13 +1,13 @@
 ﻿using System.Linq.Expressions;
-using PathFinder.Core.Interfaces.Shared.Repository;
-using PathFinder.SharedKernel.Constants;
-using PathFinder.SharedKernel.Exceptions;
+using STS.Core.Interfaces.Shared.Repository;
+using STS.SharedKernel.Constants;
+using STS.SharedKernel.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
-using PathFinder.Core.Interface.Shared.IServices;
+using STS.Core.Interface.Shared.IServices;
 
 
-namespace PathFinder.BusinessLogic.Services.Shared
+namespace STS.BusinessLogic.Services.Shared
 {
     public class CrudService<Entity> : ICrudService<Entity>
         where Entity : class
@@ -29,8 +29,8 @@ namespace PathFinder.BusinessLogic.Services.Shared
             catch (Exception ex)
             {
                 if (ex.InnerException.Message.ToLower().Contains("unique index"))
-                    throw new PathFinderException(ExceptionConstants.UniqueData);
-                throw new PathFinderException(ExceptionConstants.InternalServerError);
+                    throw new STSException(ExceptionConstants.UniqueData);
+                throw new STSException(ExceptionConstants.InternalServerError);
             }
         }
 
@@ -45,8 +45,8 @@ namespace PathFinder.BusinessLogic.Services.Shared
             catch (Exception ex)
             {
                 if (ex.InnerException.Message.ToLower().Contains("unique index"))
-                    throw new PathFinderException(ExceptionConstants.UniqueData);
-                throw new PathFinderException(ExceptionConstants.InternalServerError);
+                    throw new STSException(ExceptionConstants.UniqueData);
+                throw new STSException(ExceptionConstants.InternalServerError);
             }
         }
 
@@ -61,8 +61,8 @@ namespace PathFinder.BusinessLogic.Services.Shared
             catch (Exception ex)
             {
                 if (ex.InnerException.Message.ToLower().Contains("unique index"))
-                    throw new PathFinderException(ExceptionConstants.UniqueData);
-                throw new PathFinderException(ExceptionConstants.InternalServerError);
+                    throw new STSException(ExceptionConstants.UniqueData);
+                throw new STSException(ExceptionConstants.InternalServerError);
             }
         }
 
@@ -77,7 +77,7 @@ namespace PathFinder.BusinessLogic.Services.Shared
             }
             catch (DbUpdateException ex)
             {
-                throw new PathFinderException(ExceptionConstants.DeleteRestrictEntity);
+                throw new STSException(ExceptionConstants.DeleteRestrictEntity);
             }
         }
         public virtual async Task DeleteByEntity(Entity entity)
@@ -90,7 +90,7 @@ namespace PathFinder.BusinessLogic.Services.Shared
             }
             catch (DbUpdateException ex)
             {
-                throw new PathFinderException(ExceptionConstants.DeleteRestrictEntity);
+                throw new STSException(ExceptionConstants.DeleteRestrictEntity);
             }
         }
 
@@ -111,7 +111,7 @@ namespace PathFinder.BusinessLogic.Services.Shared
         public virtual async Task<bool> UpdateAsync(Entity entity)
         {
             if (entity == null)
-                throw new PathFinderException(ExceptionConstants.NullableUpdateElement);
+                throw new STSException(ExceptionConstants.NullableUpdateElement);
 
             try
             {
@@ -123,8 +123,8 @@ namespace PathFinder.BusinessLogic.Services.Shared
             catch (Exception ex)
             {
                 if (ex.InnerException.Message.ToLower().Contains("unique index"))
-                    throw new PathFinderException(ExceptionConstants.UniqueData);
-                throw new PathFinderException(ExceptionConstants.InternalServerError);
+                    throw new STSException(ExceptionConstants.UniqueData);
+                throw new STSException(ExceptionConstants.InternalServerError);
             }
         }
 

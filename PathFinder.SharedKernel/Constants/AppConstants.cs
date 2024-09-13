@@ -1,13 +1,9 @@
-﻿namespace PathFinder.SharedKernel.Constants
+﻿namespace STS.SharedKernel.Constants
 {
     public static class AppConstants
     {
         public const string Admin = "Admin";
-        public const string CollaboratorUser = "CollaboratorUser";
-        public const string CompanyUser = "CompanyUser";
-        public const string EntrepreneurUser = "EntrepreneurUser";
-        public const string FarmerUser = "FarmerUser";
-        public const string ResearcherUser = "ResearcherUser";
+       
 
         public static string Lang = "Lang";
         public static string En = "en-US";

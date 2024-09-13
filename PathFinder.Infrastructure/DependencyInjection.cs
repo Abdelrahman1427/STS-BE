@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace PathFinder.Infrastructure
+namespace STS.Infrastructure
 {
     public static class DependencyInjection
     {

@@ -1,7 +1,7 @@
-﻿using PathFinder.DataTransferObjects.Resources;
+﻿using STS.DataTransferObjects.Resources;
 using System.ComponentModel.DataAnnotations;
 
-namespace PathFinder.DataTransferObjects.DTOs.Shared.Request
+namespace STS.DataTransferObjects.DTOs.Shared.Request
 {
     public class GetLookUpDefinitionDTO : GetPageDefinitionDTO
     {
