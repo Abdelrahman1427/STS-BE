@@ -12,8 +12,6 @@ namespace STS.BusinessLogic.Mapping
         {
             CreateMap<Governorate, GetLookUpDefinitionDTO>().ReverseMap();
             CreateMap<GovernorateDTO, Governorate>()
-                    .ForMember(e => e.CreatedBy, ex => ex.Condition(src => src.Id == null))
-                    .ForMember(e => e.CreatedDate, ex => ex.Condition(src => src.Id == null))
                     .ReverseMap();
             CreateMap<GetLookUpDefinitionDTO, GovernorateDTO>().ReverseMap();
 

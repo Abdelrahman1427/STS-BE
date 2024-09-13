@@ -1,5 +1,4 @@
-using Microsoft.AspNetCore.Mvc.Formatters;
-using Microsoft.AspNetCore.Mvc;
+
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -19,13 +18,21 @@ using STS.DataTransferObjects.Helpers;
 using STS.BusinessLogic.Mapping;
 using STS.SharedKernel.Exceptions;
 using STS.SharedKernel.Helpers.Utilties;
+using STS.BusinessLogic;
+using Microsoft.EntityFrameworkCore;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 #region Connection String
-string clientSTS = builder.Configuration.GetConnectionString("ClientSTS");
-builder.Services.AddDbContextClient(clientSTS);
+//string clientSTS = builder.Configuration.GetConnectionString("ClientSTS");
+//builder.Services.AddDbContextClient(clientSTS);
+
+builder.Services.AddDbContext<STSDBContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ClientSTS"));
+
+});
 #endregion
 
 #region Cors
@@ -105,6 +112,7 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
 {
     builder.RegisterModule(new InfrastructureModule<STSDBContext>());
+    //builder.RegisterModule(new BusinessLogicModule());
 
 });
 #endregion
@@ -117,6 +125,8 @@ builder.Services.AddSession(options =>
     options.IdleTimeout = TimeSpan.FromMinutes(10);
 });
 #endregion
+
+builder.Services.AddHttpContextAccessor();
 
 #region Swagger
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
