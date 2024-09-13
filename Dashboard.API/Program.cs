@@ -10,7 +10,6 @@ using Autofac.Extensions.DependencyInjection;
 using Autofac;
 using Microsoft.AspNetCore.HttpOverrides;
 using STS.Infrastructure.Extentions;
-using STS.BusinessLogic;
 using STS.Infrastructure.DBContexts;
 using STS.Infrastructure;
 using Serilog;
@@ -21,7 +20,6 @@ using STS.DataTransferObjects.Helpers;
 using STS.BusinessLogic.Mapping;
 using STS.SharedKernel.Exceptions;
 using STS.SharedKernel.Helpers.Utilties;
-using STS.BusinessLogic.Services.Shared;
 
 Log.Logger = new LoggerConfiguration().WriteTo.Console(Serilog.Events.LogEventLevel.Warning)
 .CreateBootstrapLogger();
@@ -29,54 +27,26 @@ Log.Information("Starting up");
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers(options =>
-{
-    var jsonInputFormatter = options.InputFormatters
-        .OfType<Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter>()
-        .Single();
-});
 
-#region Json newtonsoft and json patch
-builder.Services.AddControllersWithViews().AddNewtonsoftJson();
-builder.Services.AddControllersWithViews(options =>
-{
-    options.InputFormatters.Insert(0, new ServiceCollection()
-        .AddLogging()
-        .AddMvc()
-        .AddNewtonsoftJson()
-        .Services.BuildServiceProvider()
-        .GetRequiredService<IOptions<MvcOptions>>()
-        .Value
-        .InputFormatters
-        .OfType<NewtonsoftJsonPatchInputFormatter>().First());
-});
-#endregion
 
 #region Connection String
 string clientSTS = builder.Configuration.GetConnectionString("ClientSTS");
 builder.Services.AddDbContextClient(clientSTS);
 #endregion
 
-#region EmailService
-builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
-#endregion
 
-#region TwilioService
-builder.Services.Configure<TwilioSetting>(builder.Configuration.GetSection("Twilio"));
-#endregion
 
-#region Flutter
+#region Cors
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFlutterOrigins",
+    options.AddPolicy("AllowCorsOrigins",
     builder =>
     {
         builder.WithOrigins(
             "*"
                             //"http://localhost:4200",
                             //"https://localhost:7193",
-                            //"https://STS-staging.orchtech.com:4433/",
-                            //"https://STS-staging.orchtech.com/"
+
                             )
     .AllowAnyHeader()
     .AllowAnyMethod();
@@ -139,12 +109,10 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 #endregion
 
 #region autoFac Configure IOC Container for other Projects
-//var isDevelopment = builder.Environment.IsDevelopment();
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
 {
     builder.RegisterModule(new InfrastructureModule<STSDBContext>());
-    builder.RegisterModule(new BusinessLogicModule());
 
 });
 #endregion
@@ -166,7 +134,7 @@ builder.Services.AddSwaggerGen(c =>
 
     c.SwaggerDoc("v5", new OpenApiInfo
     {
-        Title = "My API",
+        Title = "My STS API",
         Version = "v5"
     });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -194,15 +162,10 @@ builder.Services.AddSwaggerGen(c =>
 });
 #endregion
 
-#region Sentry
-builder.WebHost.UseSentry();
-#endregion
 
 #region DependencyInjection
 DependencyInjection.ResolveDependencies(builder.Services, builder.Configuration, null);
 #endregion
-
-builder.Services.AddSignalR();
 
 #region Run App
 var app = builder.Build();
@@ -234,7 +197,6 @@ app.UseAuthorization();
 
 app.UseMiddleware<ExceptionHandling>();
 
-app.UseSentryTracing();
 
 app.MapControllers();
 app.Run();

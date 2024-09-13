@@ -13,7 +13,6 @@ namespace STS.Infrastructure.DBContexts
             _context = context;
         }
 
-        public DbSet<Logger> Logger { get; set; }
         public DbSet<Governorate> Governorate { get; set; }
 
 

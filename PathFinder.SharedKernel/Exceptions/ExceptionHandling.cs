@@ -20,19 +20,16 @@ namespace STS.SharedKernel.Exceptions
     {
         private readonly RequestDelegate _next;
         private readonly ILogger<ExceptionHandling> _logger;
-        private readonly ILoggerService _loggerService;
         private readonly IStringLocalizer<ModelValidationResources> _localizer;
         public ExceptionHandling
             (
                 RequestDelegate next,
                 ILogger<ExceptionHandling> logger,
-                ILoggerService loggerService,
                 IStringLocalizer<ModelValidationResources> localizer
                 )
         {
             _next = next;
             _logger = logger;
-            _loggerService = loggerService;
             _localizer = localizer;
         }
 
@@ -87,7 +84,6 @@ namespace STS.SharedKernel.Exceptions
                     errorResponse.Message = "Internal Server Error";
                     break;
             }
-            await _loggerService.Log(AppConstants.FileExceptions, context.Request.Path, exception.ToString());
             _logger.LogError(exception.Message);
             var result = JsonSerializer.Serialize(errorResponse);
             context.Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = errorResponse.Message;

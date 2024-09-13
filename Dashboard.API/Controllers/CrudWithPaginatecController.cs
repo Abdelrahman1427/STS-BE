@@ -3,7 +3,6 @@ using System.Linq.Expressions;
 using Microsoft.AspNetCore.Mvc;
 using STS.DataTransferObjects.Helpers;
 using STS.DataTransferObjects.DTOs.Shared.Request;
-using STS.SharedKernel.Filters;
 using STS.Core.Interface.Shared.IServices;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
@@ -30,7 +29,6 @@ namespace STS.API.Controllers
         }
 
         [HttpPost("GetPage")]
-        [LoggerAction]
         public virtual async Task<APIResult> GetPage(PagingDTO paginationDTO)
         {
             try
@@ -46,7 +44,6 @@ namespace STS.API.Controllers
         }
 
         [HttpGet("GetLookUp")]
-        [LoggerAction]
         public virtual async Task<IActionResult> GetLookUp()
         {
             var data = await _service.GetLookUpAsync(_predicate);

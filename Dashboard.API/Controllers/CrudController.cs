@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using STS.DataTransferObjects.Helpers;
-using STS.SharedKernel.Filters;
 using Microsoft.AspNetCore.Mvc;
 using STS.Core.Interface.Shared.IServices;
 
@@ -23,7 +22,6 @@ namespace STS.API.Controllers
         }
 
         [HttpPost("Add")]
-        [LoggerAction]
         public virtual async Task<APIResult> Add(TAddDTO addDTO)
         {
             try
@@ -42,7 +40,6 @@ namespace STS.API.Controllers
         }
 
         [HttpPut("Update/{id}")]
-        [LoggerAction]
         public virtual async Task<APIResult> Update(int id, TUpdateDTO updateDTO)
         {
             try
@@ -61,7 +58,6 @@ namespace STS.API.Controllers
         }
 
         [HttpDelete("Delete/{id}")]
-        [LoggerAction]
         public virtual async Task<APIResult> Delete(int id)
         {
             try
@@ -77,7 +73,6 @@ namespace STS.API.Controllers
         }
 
         [HttpGet("GetById/{id}")]
-        [LoggerAction]
         public virtual async Task<APIResult> GetById(int id)
         {
             try
