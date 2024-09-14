@@ -10,5 +10,6 @@ namespace STS.Core.Interface.IDefinitionServices
 {
     public interface ICartItemService : ICrudWithPaginateService<CartItem>
     {
+        Task<decimal> GetTotalPrice();
     }
 }

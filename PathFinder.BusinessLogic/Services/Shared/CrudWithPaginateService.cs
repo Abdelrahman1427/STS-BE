@@ -29,24 +29,7 @@ namespace STS.BusinessLogic.Services.Shared
             return entity;
         }
 
-        protected string? EmailOrPhone(string type)
-        {
-            if (type != null)
-            {
-                bool isPhone = type.All(char.IsDigit) && type.Length == 10 && type.StartsWith(AppConstants.PhoneType);
-                bool isEmail = type.Contains('.') && type.Count(x => x == '@') == 1 && type.Count(x => x == '.') + 1 < type.Length;
 
-                if (isPhone)
-                    return AppConstants.PhoneNumber;
-
-                else if (isEmail)
-                    return AppConstants.Email;
-
-                else
-                    return AppConstants.UserName;
-            }
-            return null;
-        }
     }
 
 }

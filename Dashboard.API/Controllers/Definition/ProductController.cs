@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using STS.Core.Entities;
 using STS.Core.Interface.IDefinitionServices;
 using STS.DataTransferObjects.DTOs.Product;
@@ -17,6 +18,8 @@ namespace STS.API.Controllers.Definition
         {
             _mapper = mapper;
             _service = service;
+            _include = x => x.Include(a => a.Category);
+
         }
     }
 }

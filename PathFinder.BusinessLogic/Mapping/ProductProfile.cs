@@ -12,10 +12,10 @@ namespace STS.BusinessLogic.Mapping
             CreateMap<AddUpdateProductDTO, Product>().ReverseMap();
 
             CreateMap<Product, GetPageProductDTO>()
-                .ForMember(e =>e.CategoryName , ex => ex.MapFrom(src =>src.Category.Name))
+                .ForMember(e => e.CategoryName , ex => ex.MapFrom(src =>src.Category.Name))
                 .ReverseMap();
 
-            CreateMap<Pagination<CartItem>, Pagination<GetPageProductDTO>>().ReverseMap();
+            CreateMap<Pagination<Product>, Pagination<GetPageProductDTO>>().ReverseMap();
         }
     }
 }

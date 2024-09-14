@@ -9,10 +9,9 @@ namespace STS.DataTransferObjects.DTOs.CartItem
 {
     public class GetPageCartItemDTO 
     {
-        public int? Id { get; set; }
         public int? Quantity { get; set; }
-        public int? ProductName { get; set; }
-
+        public string? ProductName { get; set; }
+        public decimal Price { get; set; }
 
     }
 }
