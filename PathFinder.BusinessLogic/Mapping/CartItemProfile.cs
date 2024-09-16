@@ -11,10 +11,12 @@ namespace STS.BusinessLogic.Mapping
         public CartItemProfile()
         {
             CreateMap<AddUpdateCartItemDTO, CartItem>().ReverseMap();
+            CreateMap<QuantityUpdateDTO , CartItem>().ReverseMap();
 
             CreateMap<CartItem, GetPageCartItemDTO>()
                 .ForMember(e => e.ProductName, ex => ex.MapFrom(src => src.Product.Name))
-                .ForMember(e => e.Price, ex => ex.MapFrom(src => src.Product.Price * src.Quantity))
+                .ForMember(e => e.ProductId, ex => ex.MapFrom(src => src.Product.Id))
+                .ForMember(e => e.Price, ex => ex.MapFrom(src => src.Product.Price))
 
                 .ReverseMap();
 

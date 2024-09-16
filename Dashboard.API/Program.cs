@@ -42,8 +42,8 @@ builder.Services.AddCors(options =>
     builder =>
     {
         builder.WithOrigins(
-            "*"
-                            //"http://localhost:4200",
+                             "*"
+                            //"http://localhost:4200"
                             //"https://localhost:7193",
 
                             )
@@ -179,7 +179,7 @@ app.UseSwaggerUI(options =>
     options.SwaggerEndpoint(url: "/swagger/v5/swagger.json", name: "IIS");
 });
 
-app.UseCors("AllowFlutterOrigins");
+app.UseCors("AllowCorsOrigins");
 app.UseHttpsRedirection();
 
 app.UseRouting();
