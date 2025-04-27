@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         GIT_REPO = 'https://github.com/Abdelrahman1427/STS-BE.git'  
-        BRANCH = 'main'
+        BRANCH = 'master'
         REMOTE_DIR = '/' // Replace with the actual remote directory
     }
 
