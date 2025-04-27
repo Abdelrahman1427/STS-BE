@@ -21,7 +21,7 @@ pipeline {
                 script {
                  //   sh 'dotnet restore'
 
-                    sh 'dotnet build --configuration Release'
+                    sh 'dotnet build '
 
                     // Publish the .NET app (this creates the output folder)
                     sh 'dotnet publish --configuration Release --output ./publish'
