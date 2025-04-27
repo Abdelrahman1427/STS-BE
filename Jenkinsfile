@@ -4,7 +4,7 @@ pipeline {
     environment {
         GIT_REPO = 'https://github.com/Abdelrahman1427/STS-BE.git'  
         BRANCH = 'master'
-        REMOTE_DIR = '/abdo' // Replace with the actual remote directory
+        REMOTE_DIR = '/abdo/' // Replace with the actual remote directory
     }
 
     stages {
